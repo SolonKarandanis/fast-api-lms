@@ -2,10 +2,9 @@ import enum
 
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Enum, Text
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import null
 
-from ..db_setup import Base
 from .mixins import Timestamp
+from ..db_setup import Base
 
 
 class Role(enum.Enum):
