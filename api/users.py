@@ -1,4 +1,3 @@
-from os import stat
 from typing import Optional, List
 
 import fastapi
@@ -10,6 +9,7 @@ from schemas.user import UserCreate, User
 from api.utils.users import get_user, get_user_by_email, get_users, create_user
 
 router = fastapi.APIRouter()
+
 
 @router.get("/users", response_model=List[User])
 async def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
