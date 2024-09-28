@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class UserBase(BaseModel):
@@ -21,3 +21,8 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+class UserLoginSchema(BaseModel):
+    email: EmailStr
+    password: str
