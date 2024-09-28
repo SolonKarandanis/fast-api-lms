@@ -16,6 +16,8 @@ class User(Timestamp, Base):
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String(100), unique=True, index=True, nullable=False)
+    username = Column(String(100), unique=True)
+    password = Column(String(255))
     role = Column(Enum(Role))
 
     profile = relationship("Profile", back_populates="owner", uselist=False)
