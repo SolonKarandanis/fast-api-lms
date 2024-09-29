@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlmodel import SQLModel,create_engine, Session
 
 SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://fastapi:fastapi@192.168.1.6/fastapi"
 
@@ -20,3 +20,14 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+# sqlmodel
+def init_db():
+    SQLModel.metadata.create_all(engine)
+
+
+def get_session():
+    with Session(engine) as session:
+        yield session
+
