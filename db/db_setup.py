@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://fastapi:fastapi@192.168.1.6/fastapi"
 
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={}, future=True
+    SQLALCHEMY_DATABASE_URL, connect_args={}, future=True,echo=True
 )
 SessionLocal = sessionmaker(
     autocommit=False, autoflush=False, bind=engine, future=True
